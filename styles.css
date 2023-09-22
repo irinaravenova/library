@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap');
+
+*, html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Grandiflora One', serif;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 175px auto;
+    grid-template-rows: 80px 100vh;
+    grid-template-areas: "sidebar container-top"
+                            "sidebar main-container ";
+}
+
+.sidebar {
+    color: #010b43;
+    border-style: dotted;
+    grid-area: sidebar;
+
+}
+
+.container-top {
+    border-style: dotted;
+    grid-area: container-top;
+}
+
+.main-container {
+    padding-left: 20px;
+    padding-top: 20px;
+    width: 100%;
+    border-style: dotted;
+    grid-area: main-container;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    grid-template-rows: repeat(auto-fit, 250px);
+    gap: 20px;
+}
+
+li {
+    border-style: dotted;
+    list-style: none;
+}
+
+li > button {
+    width: 15px;
+    height: 15px;
+}
+
