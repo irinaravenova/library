@@ -7,31 +7,48 @@
 
 body {
     font-family: 'Grandiflora One', serif;
+    min-width: 725px;
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 175px auto;
+    grid-template-columns: 200px auto;
     grid-template-rows: 80px 100vh;
     grid-template-areas: "sidebar container-top"
                             "sidebar main-container ";
 }
 
 .sidebar {
-    color: #010b43;
-    border-style: dotted;
+    background-color: #002186;
+    color: #ffffe8;
     grid-area: sidebar;
+    display: grid;
+    grid-template-rows: 80px;
+    justify-items: center;
+    padding-top: 10px;
+}
 
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
 }
 
 .container-top {
-    border-style: dotted;
+    background-color: #3250bc;
+    color: #ffffe8;
     grid-area: container-top;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 6px -6px lightgrey;
+
 }
 
 .main-container {
+    background-color:#3250bc;
     padding-left: 20px;
     padding-top: 20px;
     width: 100%;
-    border-style: dotted;
     grid-area: main-container;
     display: grid;
     grid-template-columns: repeat(auto-fit, 250px);
@@ -39,13 +56,25 @@ body {
     gap: 20px;
 }
 
-li {
-    border-style: dotted;
-    list-style: none;
+button {
+    border-style: none;
+    background-color: transparent;
 }
 
-li > button {
-    width: 15px;
-    height: 15px;
+button:hover {
+    cursor: pointer;
 }
+
+li {
+    background-color: #ffffe8;
+    list-style: none;
+    border-style: none;
+    border-radius: 15px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    box-shadow: 3px 5px 6px -6px grey;
+}
+
+
 
