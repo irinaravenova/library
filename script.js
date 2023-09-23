@@ -23,10 +23,10 @@ confirmBtn.addEventListener("click", (event) => {
     favDialog.close(); // Have to send the select box value here.
   });
 
-const theHobbit = new Book("The Hobbit", "JRR Tolkien", "25", "not read yet")
-const lotr = new Book("LOTR", "JRR Tolkien", "25", "not read yet")
-const lotr1 = new Book("LOTR 1", "JRR Tolkien", "25", "not read yet")
-const lotr2 = new Book("LOTR 2", "JRR Tolkien", "25", "not read yet")
+const theHobbit = new Book("The Hobbit", "JRR Tolkien", "25", false)
+const lotr = new Book("Lord of the Rings", "JRR Tolkien", "25", false)
+const lotr1 = new Book("LOTR 1", "JRR Tolkien", "25", false)
+const lotr2 = new Book("LOTR 2", "JRR Tolkien", "25", false)
 
 const myLibrary = [lotr1, theHobbit, lotr, lotr2]
 console.log(myLibrary)
@@ -37,12 +37,19 @@ myLibrary.forEach((book) => {
     const booksList = document.getElementById("booksList");
     let listedBook = document.createElement('li');
     let deleteEntryBtn = document.createElement('button');
-    deleteEntryBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>';
-
+    
+    let readStatus = "";
+    if (book.read == false) {
+        readStatus = "Not Completed";
+    }
+    else {
+        readStatus = "Completed";
+    }
     listedBook.innerHTML = `<p>${book.title}</p> 
                             <p>${book.author}</p> 
                             <p>${book.pages} pages</p> 
-                            <p>${book.read}</p>`;
+                            <p>${readStatus}</p>`;
+    deleteEntryBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>';
 
     booksList.appendChild(listedBook);
     listedBook.appendChild(deleteEntryBtn);
@@ -61,12 +68,19 @@ document.getElementById('submit').addEventListener("click", function(event) {
     
     const existingBooks = document.getElementById("booksList");
     let newBook = document.createElement('li');
+    let deleteEntryBtn = document.createElement('button');
+
     newBook.innerHTML = `<p> ${newBookObject.title}</p> 
                         <p>${newBookObject.author}</p> 
                         <p>${newBookObject.pages} pages</p> 
                         <p>${readOrNot}</p>`;
+
+    deleteEntryBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>';
+
     
     existingBooks.appendChild(newBook);
+    newBook.appendChild(deleteEntryBtn);
+
     favDialog.close();
     resetBookForm();
     console.log(myLibrary);
