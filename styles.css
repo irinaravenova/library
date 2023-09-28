@@ -89,3 +89,49 @@ li {
     text-align: center;
 }
 
+
+dialog {
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    border-style: none;
+    border-radius: 15px;
+    box-shadow: 3px 5px 6px -6px black;
+    background-color: #ffffe8;
+}
+
+#addBookForm {
+    display: grid;
+    gap: 10px;
+}
+ 
+input {
+    border-radius: 5px;
+    border-width: .5px;
+    height: 25px;
+    background-color: rgb(239, 239, 239);
+    border-style: none;
+}
+
+
+
+#addBookForm > div {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 15px;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+#addBookForm > div > button {
+    font-family: 'Grandiflora One', serif;
+    background-color: #32488f;
+    box-shadow: 3px 5px 6px -6px grey;
+    color: rgb(255, 255, 255);
+    width: 120px;
+    height: 45px;
+    border-radius: 10px;
+}
